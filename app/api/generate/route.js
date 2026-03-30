@@ -28,8 +28,10 @@ export async function POST(req) {
     }
 
     if (!process.env.LLM_API_KEY || process.env.LLM_API_KEY === 'gsk_xxxxx') {
-      console.warn("Using fallback story because LLM_API_KEY is not set.");
-      return Response.json(FALLBACK_STORY);
+      return Response.json(
+        { error: "API key not configured", details: "Add your Groq API key to .env.local as LLM_API_KEY=gsk_..." },
+        { status: 503 }
+      );
     }
 
     const userPrompt = buildUserPrompt(storyIdea, choiceIndex, history);
