@@ -1,17 +1,33 @@
+"use client";
+
+import { useDrag } from "@/lib/useDrag";
+
 export default function SpeechBubble({ text, x, y, tailDir, type, speaker, delay }) {
-  const isThought = type === "thought";
-  const isWhisper = type === "whisper";
-  const isShout = type === "shout";
+  const { pos, isDragging, hasMoved, elRef, onPointerDown, onPointerMove, onPointerUp } = useDrag(x, y);
+
+  const isThought  = type === "thought";
+  const isWhisper  = type === "whisper";
+  const isShout    = type === "shout";
 
   return (
-    <div style={{
-      position: "absolute",
-      left: `${x}%`, top: `${y}%`,
-      transform: "translate(-50%, -50%)",
-      maxWidth: "65%",
-      animation: `bubblePop 0.35s ease ${delay}s both`,
-      zIndex: 5,
-    }}>
+    <div
+      ref={elRef}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      style={{
+        position: "absolute",
+        left: `${pos.x}%`,
+        top: `${pos.y}%`,
+        transform: "translate(-50%, -50%)",
+        maxWidth: "65%",
+        animation: hasMoved ? "none" : `bubblePop 0.35s ease ${delay}s both`,
+        zIndex: isDragging ? 10 : 5,
+        cursor: isDragging ? "grabbing" : "grab",
+        userSelect: "none",
+        touchAction: "none",
+      }}
+    >
       <div style={{
         background: isShout ? "#fff3cd" : "#fff",
         border: isShout ? "3px solid #e74c3c" : isWhisper ? "2px dashed #999" : "2.5px solid #2a2a2a",
@@ -25,7 +41,9 @@ export default function SpeechBubble({ text, x, y, tailDir, type, speaker, delay
         textAlign: "center",
         lineHeight: 1.35,
         fontStyle: isWhisper ? "italic" : "normal",
-        boxShadow: isShout ? "2px 2px 0 #e74c3c" : "2px 2px 0 rgba(0,0,0,0.15)",
+        boxShadow: isDragging
+          ? "3px 3px 10px rgba(0,0,0,0.4)"
+          : isShout ? "2px 2px 0 #e74c3c" : "2px 2px 0 rgba(0,0,0,0.15)",
         position: "relative",
       }}>
         {speaker && (
@@ -38,6 +56,7 @@ export default function SpeechBubble({ text, x, y, tailDir, type, speaker, delay
         )}
         {text}
       </div>
+
       {/* Tail */}
       {!isThought && (
         <div style={{
@@ -51,6 +70,7 @@ export default function SpeechBubble({ text, x, y, tailDir, type, speaker, delay
           filter: "drop-shadow(2px 2px 0 rgba(0,0,0,0.15))",
         }} />
       )}
+
       {isThought && (
         <>
           <div style={{
