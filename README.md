@@ -2,7 +2,11 @@
 
 **TaleWhale** is an AI-powered interactive comic book app for kids. Parents or kids can type a story idea and get a "choose-your-own-adventure" style comic book with panels, speech bubbles, and sound effects.
 
-##  Features
+## 📸 Screenshot
+
+![TaleWhale Home Screen](./screenshots/home.png)
+
+## 🚀 Features
 
 - **AI-Powered Storytelling**: Generates unique story chapters based on any prompt.
 - **Interactive Comic Engine**: Dynamic layout with speech bubbles, narration, and SFX.
