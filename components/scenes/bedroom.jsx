@@ -1,0 +1,1 @@
+export default function Bedroom() { return ( <svg viewBox="0 0 400 300" className="w-full h-full" xmlns="http://www.w3.org/2000/svg"> <rect width="400" height="300" fill="#fff9c4" /> <rect x="50" y="200" width="200" height="80" fill="#90caf9" /> </svg> ); }

@@ -1,0 +1,1 @@
+export default function Space() { return ( <svg viewBox="0 0 400 300" className="w-full h-full" xmlns="http://www.w3.org/2000/svg"> <rect width="400" height="300" fill="#0b0e14" /> <circle cx="300" cy="100" r="40" fill="#ffcc80" /> <circle cx="80" cy="80" r="25" fill="#90caf9" /> </svg> ); }
