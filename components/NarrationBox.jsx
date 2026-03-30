@@ -1,14 +1,30 @@
-export default function NarrationBox({ text, pos }) {
+export default function NarrationBox({ text, position, delay }) {
   const posStyles = {
-    top: "top-0 left-0 right-0 m-2 rounded-sm",
-    bottom: "bottom-0 left-0 right-0 m-2 rounded-sm",
-    topRight: "top-0 right-0 m-2 rounded-sm max-w-[60%]",
-    topWide: "top-0 left-0 right-0 m-0 border-x-0 border-t-0 rounded-none",
+    top: { top: "8px", left: "8px", right: "auto" },
+    topRight: { top: "8px", right: "8px", left: "auto" },
+    bottom: { bottom: "8px", left: "8px", right: "auto" },
+    bottomRight: { bottom: "8px", right: "8px", left: "auto" },
+    topWide: { top: "8px", left: "8px", right: "8px" },
   };
 
   return (
-    <div className={`absolute p-3 bg-yellow-50 border-2 border-black shadow-md z-10 ${posStyles[pos || 'top']}`}>
-      <p className="text-sm font-medium leading-relaxed italic text-gray-800">{text}</p>
+    <div style={{
+      position: "absolute",
+      ...posStyles[position],
+      maxWidth: position === "topWide" ? "100%" : "70%",
+      background: "linear-gradient(135deg, #fdf6ec 0%, #f5e6d0 100%)",
+      border: "2px solid #b4783c",
+      padding: "8px 12px",
+      fontFamily: "'Literata', 'Georgia', serif",
+      fontSize: "11.5px",
+      fontStyle: "italic",
+      color: "#5a3e28",
+      lineHeight: 1.45,
+      zIndex: 4,
+      boxShadow: "2px 2px 0 rgba(180, 120, 60, 0.3)",
+      animation: `slideIn 0.4s ease ${delay}s both`,
+    }}>
+      {text}
     </div>
   );
 }

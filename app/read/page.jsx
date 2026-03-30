@@ -84,9 +84,9 @@ function ReaderContent() {
 
   return (
     <div className="flex-1 flex flex-col pb-10">
-      <div className="p-4 grid grid-cols-12 gap-4">
+      <div style={{ padding: "1rem", display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "1rem" }}>
         {currentChapter?.panels?.map((panel, i) => (
-          <ComicPanel key={i} panel={panel} />
+          <ComicPanel key={i} panel={panel} panelIndex={i} totalPanels={currentChapter?.panels?.length} />
         ))}
       </div>
 

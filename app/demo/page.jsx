@@ -1,15 +1,22 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback } from "react";
 import ComicPanel from "@/components/ComicPanel";
+import { Loader2 } from "lucide-react";
 
-const PROMPTS_EXAMPLES = [
-  { text: "A brave little fox who learns to fly", icon: "🦊" },
-  { text: "A magical garden that grows candy", icon: "🍬" },
-  { text: "A robot who wants to learn how to paint", icon: "🤖" },
-  { text: "Pirates who discover an underwater city", icon: "🏴‍☠️" },
-  { text: "A dinosaur's first day at school", icon: "🦕" },
-];
+function TypingDots() {
+  return (
+    <div style={{ display: "flex", gap: "8px", justifyContent: "center", padding: "50px 0" }}>
+      {[0, 1, 2].map(i => (
+        <div key={i} style={{
+          width: "10px", height: "10px", borderRadius: "50%",
+          background: "#ffd93d",
+          animation: `bounce 1.2s ease ${i * 0.15}s infinite`,
+        }} />
+      ))}
+    </div>
+  );
+}
 
 function ChoiceButton({ text, index, onClick, disabled }) {
   const [hover, setHover] = useState(false);
@@ -45,96 +52,105 @@ function ChoiceButton({ text, index, onClick, disabled }) {
   );
 }
 
-function TypingDots() {
-  return (
-    <div style={{ display: "flex", gap: "8px", justifyContent: "center", padding: "50px 0" }}>
-      {[0, 1, 2].map(i => (
-        <div key={i} style={{
-          width: "10px", height: "10px", borderRadius: "50%",
-          background: "#ffd93d",
-          animation: `bounce 1.2s ease ${i * 0.15}s infinite`,
-        }} />
-      ))}
-    </div>
-  );
-}
+// Sample story data
+const SAMPLE_CHAPTERS = [
+  {
+    panels: [
+      {
+        layout: "full",
+        sceneHint: "forest_night",
+        narration: "In a forest where the trees touched the clouds, there lived a small red fox named Pip...",
+        narrationPos: "top",
+      },
+      {
+        layout: "left",
+        sceneHint: "forest_night",
+        bubbles: [{
+          text: "If only I could see the world from up there...",
+          x: 55, y: 25, tailDir: "left", type: "whisper",
+          speaker: "Pip"
+        }],
+        narration: "Every evening, Pip watched the birds soar above the canopy.",
+        narrationPos: "bottom",
+      },
+      {
+        layout: "right",
+        sceneHint: "garden",
+        narration: "One morning, Pip found something extraordinary near the Old Wishing Stump.",
+        narrationPos: "top",
+        sfx: { text: "✨ GLOW ✨", x: 50, y: 65, color: "#ffeaa7" },
+      },
+    ],
+    choices: [
+      "Pick up the glowing feather",
+      "Follow the trail deeper into the forest",
+      "Tell Grandmother Fox about it"
+    ]
+  },
+  {
+    panels: [
+      {
+        layout: "wide",
+        sceneHint: "sky",
+        narration: "The moment fur met quill, a warm tingle raced through Pip's entire body...",
+        narrationPos: "topWide",
+        sfx: { text: "WHOOOOSH!", x: 50, y: 55, color: "#ffa64d" },
+      },
+      {
+        layout: "left",
+        sceneHint: "sky",
+        bubbles: [{
+          text: "OH! What's happening to me?!",
+          x: 50, y: 20, tailDir: "center", type: "shout",
+        }],
+        narration: "Two small, shimmering wings appeared on Pip's back.",
+        narrationPos: "bottom",
+      },
+      {
+        layout: "right",
+        sceneHint: "garden",
+        bubbles: [
+          { text: "Amazing!", x: 55, y: 20, tailDir: "center", speaker: "Friend" },
+        ],
+        narration: "A friend witnessed the magic unfold.",
+        narrationPos: "bottom",
+      },
+    ],
+    choices: null
+  }
+];
 
-export default function Home() {
+export default function DemoPage() {
   const [screen, setScreen] = useState("home");
-  const [prompt, setPrompt] = useState("");
   const [chapters, setChapters] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [focusedExample, setFocusedExample] = useState(null);
-  const [stars, setStars] = useState([]);
   const contentRef = useRef(null);
 
-  // Generate stars only on client after hydration
-  useEffect(() => {
-    const generatedStars = Array.from({ length: 30 }).map(() => ({
-      left: Math.random() * 100,
-      top: Math.random() * 100,
-      duration: 2 + Math.random() * 3,
-      delay: Math.random() * 2,
-    }));
-    setStars(generatedStars);
-  }, []);
-
-  const generateChapter = useCallback(async (choiceIndex = null, storyIdea = null, historyData = null) => {
+  const generateChapter = useCallback(async () => {
     setLoading(true);
-    setError(null);
-
-    try {
-      const response = await fetch("/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          storyIdea: storyIdea ?? prompt,
-          choiceIndex,
-          history: historyData ?? chapters,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        const errorMsg = data?.details || data?.error || "Failed to generate chapter";
-        throw new Error(errorMsg);
-      }
-
-      const newHistory = historyData ?? chapters;
-      setChapters(prev => [...prev, data]);
-      setCurrentPage(newHistory.length);
-    } catch (err) {
-      console.error("Generation error:", err);
-      setError(err.message || "Oops! Let's try that again.");
-    } finally {
-      setLoading(false);
-      if (contentRef.current) contentRef.current.scrollTop = 0;
-    }
-  }, [prompt, chapters]);
-
-  const startStory = (text) => {
-    const finalPrompt = text || prompt;
-    if (!finalPrompt.trim()) return;
+    await new Promise(r => setTimeout(r, 800));
     
-    setPrompt(finalPrompt);
+    if (currentPage < SAMPLE_CHAPTERS.length) {
+      setChapters(prev => [...prev, SAMPLE_CHAPTERS[currentPage]]);
+      setCurrentPage(prev => prev + 1);
+    }
+    
+    setLoading(false);
+  }, [currentPage]);
+
+  const startStory = () => {
     setChapters([]);
     setCurrentPage(0);
-    setError(null);
     setScreen("reading");
-    
-    // Call generateChapter with the prompt directly instead of relying on state
-    generateChapter(null, finalPrompt, []);
+    generateChapter();
   };
-
-  const makeChoice = (i) => generateChapter(i, prompt, chapters);
 
   const goToPage = (dir) => {
     const next = currentPage + dir;
     if (next >= 0 && next < chapters.length) {
-      setCurrentPage(next);
+      setCurrentPage(prev => prev + dir);
       if (contentRef.current) contentRef.current.scrollTop = 0;
     }
   };
@@ -160,16 +176,13 @@ export default function Home() {
         `}</style>
 
         {/* BG stars */}
-        {stars.map((star, i) => (
+        {Array.from({length:30}).map((_,i) => (
           <div key={i} style={{
             position: "absolute",
-            left: `${star.left}%`,
-            top: `${star.top}%`,
-            width: "2px",
-            height: "2px",
-            borderRadius: "50%",
+            left: `${Math.random()*100}%`, top: `${Math.random()*100}%`,
+            width: "2px", height: "2px", borderRadius: "50%",
             background: "#fff",
-            animation: `starPulse ${star.duration}s ease ${star.delay}s infinite`,
+            animation: `starPulse ${2+Math.random()*3}s ease ${Math.random()*2}s infinite`,
           }} />
         ))}
 
@@ -182,7 +195,7 @@ export default function Home() {
             fontSize: "56px", marginBottom: "8px",
             animation: "float 3s ease-in-out infinite",
             filter: "drop-shadow(0 0 20px rgba(255, 217, 61, 0.4))",
-          }}>🐋</div>
+          }}>💥</div>
           <h1 style={{
             fontSize: "38px", fontWeight: 400, color: "#ffd93d",
             margin: "0 0 4px", letterSpacing: "3px",
@@ -195,91 +208,53 @@ export default function Home() {
           }}>AI Comic Stories for Kids</p>
         </div>
 
-        {/* Input */}
+        {/* Main content */}
         <div style={{
-          padding: "0 20px 20px",
-          animation: "fadeInUp 0.7s ease 0.1s both",
+          padding: "40px 20px",
+          flex: 1,
           position: "relative", zIndex: 2,
+          display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"
         }}>
           <div style={{
-            background: "rgba(255,255,255,0.08)",
-            backdropFilter: "blur(12px)",
-            borderRadius: "16px",
-            padding: "4px",
-            border: "2px solid rgba(255, 217, 61, 0.2)",
+            textAlign: "center", marginBottom: "40px"
           }}>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <input
-                value={prompt}
-                onChange={e => setPrompt(e.target.value)}
-                onKeyDown={e => e.key === "Enter" && startStory()}
-                placeholder="What's your adventure?"
-                style={{
-                  flex: 1, padding: "14px 16px",
-                  border: "none", outline: "none", background: "transparent",
-                  fontFamily: "'Literata', Georgia, serif",
-                  fontSize: "15px", color: "#fff",
-                }}
-              />
-              <button
-                onClick={() => startStory()}
-                style={{
-                  width: "44px", height: "44px",
-                  borderRadius: "12px", border: "none",
-                  background: prompt.trim()
-                    ? "linear-gradient(135deg, #ffd93d 0%, #e74c3c 100%)"
-                    : "rgba(255,255,255,0.1)",
-                  color: prompt.trim() ? "#1a0d3a" : "rgba(255,255,255,0.3)",
-                  fontSize: "20px", cursor: "pointer",
-                  marginRight: "4px", fontWeight: 900,
-                  transition: "all 0.3s ease",
-                }}
-              >→</button>
-            </div>
+            <p style={{
+              fontSize: "16px", color: "rgba(255,255,255,0.7)",
+              fontFamily: "'Literata', Georgia, serif",
+              margin: "0 0 20px",
+              lineHeight: "1.6"
+            }}>
+              Watch AI-generated comic panels come to life with animations, sound effects, and interactive choices!
+            </p>
           </div>
-        </div>
 
-        {/* Examples */}
-        <div style={{
-          padding: "0 20px 32px", flex: 1,
-          position: "relative", zIndex: 2,
-        }}>
-          <p style={{
-            fontSize: "11px", textTransform: "uppercase",
-            letterSpacing: "2px", color: "rgba(255,217,61,0.5)",
-            margin: "0 0 12px 4px",
-          }}>⚡ PICK A STORY</p>
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {PROMPTS_EXAMPLES.map((ex, i) => (
-              <button
-                key={i}
-                onClick={() => startStory(ex.text)}
-                onMouseEnter={() => setFocusedExample(i)}
-                onMouseLeave={() => setFocusedExample(null)}
-                style={{
-                  display: "flex", alignItems: "center", gap: "12px",
-                  padding: "14px 16px",
-                  background: focusedExample === i
-                    ? "rgba(255, 217, 61, 0.12)"
-                    : "rgba(255,255,255,0.05)",
-                  border: `2px solid ${focusedExample === i ? "rgba(255, 217, 61, 0.3)" : "rgba(255,255,255,0.08)"}`,
-                  borderRadius: "12px",
-                  cursor: "pointer",
-                  textAlign: "left",
-                  fontFamily: "'Bangers', cursive",
-                  fontSize: "16px",
-                  letterSpacing: "1px",
-                  color: "#fff",
-                  transition: "all 0.2s ease",
-                  transform: focusedExample === i ? "translateX(6px) scale(1.02)" : "none",
-                  animation: `fadeInUp 0.5s ease ${0.2 + i * 0.07}s both`,
-                }}
-              >
-                <span style={{ fontSize: "24px", flexShrink: 0 }}>{ex.icon}</span>
-                <span>{ex.text}</span>
-              </button>
-            ))}
-          </div>
+          <button
+            onClick={startStory}
+            style={{
+              padding: "16px 40px",
+              background: "linear-gradient(135deg, #ffd93d 0%, #e74c3c 100%)",
+              color: "#1a0d3a", 
+              border: "3px solid #2a2a2a",
+              borderRadius: "16px",
+              fontFamily: "'Bangers', cursive",
+              fontSize: "22px", 
+              letterSpacing: "2px",
+              cursor: "pointer",
+              boxShadow: "6px 6px 0 #2a2a2a",
+              transition: "all 0.2s ease",
+              fontWeight: 900,
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = "translate(-2px, -2px)";
+              e.target.style.boxShadow = "8px 8px 0 #2a2a2a";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "none";
+              e.target.style.boxShadow = "6px 6px 0 #2a2a2a";
+            }}
+          >
+            START DEMO
+          </button>
         </div>
 
         <div style={{
@@ -288,7 +263,7 @@ export default function Home() {
           fontFamily: "'Literata', Georgia, serif",
           position: "relative", zIndex: 2,
         }}>
-          Powered by AI · Made for curious minds
+          Demo Story · Try the UI design
         </div>
       </div>
     );
@@ -296,7 +271,6 @@ export default function Home() {
 
   // READING SCREEN
   const currentChapter = chapters[currentPage];
-  const isStoryEnded = currentChapter && !currentChapter.choices;
 
   return (
     <div style={{
@@ -334,7 +308,7 @@ export default function Home() {
           CHAPTER {currentPage + 1}{chapters.length > 0 ? ` / ${chapters.length}` : ""}
         </div>
         <div style={{ display: "flex", gap: "4px" }}>
-          {Array.from({ length: Math.max(chapters.length, 1) }).map((_, i) => (
+          {Array.from({ length: SAMPLE_CHAPTERS.length }).map((_, i) => (
             <div key={i} style={{
               width: i === currentPage ? "16px" : "6px",
               height: "6px", borderRadius: "3px",
@@ -352,21 +326,7 @@ export default function Home() {
         WebkitOverflowScrolling: "touch",
         padding: "12px",
       }}>
-        {error ? (
-          <div style={{ textAlign: "center", padding: "40px 20px", color: "#ff6b6b" }}>
-            <p style={{ fontFamily: "'Bangers', cursive", fontSize: "18px" }}>{error}</p>
-            <button onClick={() => setScreen("home")} style={{
-              marginTop: "20px",
-              padding: "10px 20px",
-              background: "rgba(255,217,61,0.2)",
-              border: "2px solid rgba(255,217,61,0.3)",
-              borderRadius: "8px",
-              color: "#ffd93d",
-              cursor: "pointer",
-              fontFamily: "'Bangers', cursive",
-            }}>Try Again</button>
-          </div>
-        ) : loading && chapters.length === currentPage ? (
+        {loading ? (
           <div style={{ textAlign: "center", padding: "40px 0" }}>
             <TypingDots />
             <p style={{
@@ -384,12 +344,12 @@ export default function Home() {
               gap: "8px",
               marginBottom: "16px",
             }}>
-              {currentChapter.panels?.map((panel, i) => (
-                <ComicPanel key={i} panel={panel} panelIndex={i} totalPanels={currentChapter.panels?.length} />
+              {currentChapter.panels.map((panel, i) => (
+                <ComicPanel key={i} panel={panel} panelIndex={i} totalPanels={currentChapter.panels.length} />
               ))}
             </div>
 
-            {/* Choices or Navigation */}
+            {/* Choices or Next Chapter button */}
             {currentPage === chapters.length - 1 && currentChapter.choices ? (
               <div style={{
                 padding: "8px 4px 16px",
@@ -403,11 +363,17 @@ export default function Home() {
                 }}>⚡ WHAT HAPPENS NEXT? ⚡</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                   {currentChapter.choices.map((c, i) => (
-                    <ChoiceButton key={i} text={c} index={i} onClick={makeChoice} disabled={loading} />
+                    <ChoiceButton 
+                      key={i} 
+                      text={c} 
+                      index={i} 
+                      onClick={() => generateChapter()} 
+                      disabled={loading} 
+                    />
                   ))}
                 </div>
               </div>
-            ) : currentPage === chapters.length - 1 && isStoryEnded ? (
+            ) : currentPage === chapters.length - 1 ? (
               <div style={{
                 textAlign: "center", padding: "32px 16px",
                 animation: "fadeInUp 0.6s ease",
@@ -433,7 +399,6 @@ export default function Home() {
                   fontSize: "18px", letterSpacing: "2px",
                   cursor: "pointer",
                   boxShadow: "4px 4px 0 #2a2a2a",
-                  fontWeight: 900,
                 }}>NEW ADVENTURE!</button>
               </div>
             ) : (
@@ -454,33 +419,18 @@ export default function Home() {
                     letterSpacing: "1px",
                   }}>← PREV</button>
                 
-                {currentPage === chapters.length - 1 && !isStoryEnded ? (
-                  <button onClick={() => generateChapter()} disabled={loading}
-                    style={{
-                      padding: "8px 18px",
-                      background: "rgba(255,217,61,0.15)",
-                      border: "2px solid rgba(255,217,61,0.3)",
-                      borderRadius: "10px", 
-                      cursor: "pointer",
-                      color: "#ffd93d",
-                      fontFamily: "'Bangers', cursive", 
-                      fontSize: "14px", 
-                      letterSpacing: "1px",
-                    }}>NEXT CHAPTER →</button>
-                ) : (
-                  <button onClick={() => goToPage(1)} disabled={currentPage >= chapters.length - 1}
-                    style={{
-                      padding: "8px 18px", 
-                      background: currentPage < chapters.length - 1 ? "rgba(255,217,61,0.1)" : "transparent",
-                      border: currentPage < chapters.length - 1 ? "2px solid rgba(255,217,61,0.2)" : "2px solid transparent",
-                      borderRadius: "10px", 
-                      cursor: currentPage < chapters.length - 1 ? "pointer" : "default",
-                      color: currentPage < chapters.length - 1 ? "#ffd93d" : "transparent",
-                      fontFamily: "'Bangers', cursive", 
-                      fontSize: "14px", 
-                      letterSpacing: "1px",
-                    }}>NEXT →</button>
-                )}
+                <button onClick={() => generateChapter()} disabled={loading}
+                  style={{
+                    padding: "8px 18px",
+                    background: "rgba(255,217,61,0.15)",
+                    border: "2px solid rgba(255,217,61,0.3)",
+                    borderRadius: "10px", 
+                    cursor: "pointer",
+                    color: "#ffd93d",
+                    fontFamily: "'Bangers', cursive", 
+                    fontSize: "14px", 
+                    letterSpacing: "1px",
+                  }}>NEXT CHAPTER →</button>
               </div>
             )}
           </>

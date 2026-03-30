@@ -37,7 +37,10 @@ export async function POST(req) {
 
     return Response.json(chapter);
   } catch (error) {
-    console.error("Error generating comic chapter:", error);
-    return Response.json(FALLBACK_STORY); // Return fallback on error too for v0.1
+    console.error("Error generating comic chapter:", error.message, error.stack);
+    return Response.json(
+      { error: "Failed to generate chapter", details: error.message },
+      { status: 500 }
+    );
   }
 }
