@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Only use static export for GitHub Pages, not for Vercel
+  output: process.env.NEXT_PUBLIC_BASE_PATH ? 'export' : undefined,
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
   images: {
     unoptimized: true,
   },
-  distDir: 'out',
+  distDir: process.env.NEXT_PUBLIC_BASE_PATH ? 'out' : '.next',
 };
 
 module.exports = nextConfig;

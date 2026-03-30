@@ -104,8 +104,7 @@ export default function Home() {
     setError(null);
 
     try {
-      const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-      const response = await fetch(`${basePath}/api/generate`, {
+      const response = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -129,15 +128,19 @@ export default function Home() {
       });
     } catch (err) {
       console.error("Generation error:", err);
-      // Use fallback story if API is not available (e.g., GitHub Pages)
-      try {
+      
+      // Only use fallback on GitHub Pages (when NEXT_PUBLIC_BASE_PATH is set)
+      const isGitHubPages = typeof process.env.NEXT_PUBLIC_BASE_PATH !== 'undefined' && process.env.NEXT_PUBLIC_BASE_PATH !== '';
+      
+      if (isGitHubPages) {
         setChapters(prev => {
           const updated = [...prev, FALLBACK_STORY];
           setCurrentPage(updated.length - 1);
           return updated;
         });
         setError(null);
-      } catch (fallbackErr) {
+      } else {
+        // On Vercel/production, show the real error
         setError(err.message || "Oops! Let's try that again.");
       }
     } finally {
