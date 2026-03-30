@@ -2,11 +2,7 @@
 
 **TaleWhale** is an AI-powered interactive comic book app for kids. Parents or kids can type a story idea and get a "choose-your-own-adventure" style comic book with panels, speech bubbles, and sound effects.
 
-## 📸 Screenshot
-
-![TaleWhale Home Screen](./screenshots/home.png)
-
-## 🚀 Features
+##  Features
 
 - **AI-Powered Storytelling**: Generates unique story chapters based on any prompt.
 - **Interactive Comic Engine**: Dynamic layout with speech bubbles, narration, and SFX.
@@ -55,13 +51,13 @@ The app is configured to work on GitHub Pages. When deployed to GitHub Pages, th
 
 1. **Enable GitHub Pages:**
    - Go to your repository Settings → Pages
-   - Under "Source", select "GitHub Actions"
+   - Under "Build and deployment", select "GitHub Actions" as source
 
-2. **Push to main branch:**
+2. **Push to master branch:**
    ```bash
    git add .
    git commit -m "Deploy to GitHub Pages"
-   git push origin main
+   git push origin master
    ```
    The GitHub Actions workflow will automatically build and deploy to GitHub Pages.
 
