@@ -48,6 +48,37 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## 🌐 Deployment
+
+### GitHub Pages (Static Deployment)
+The app is configured to work on GitHub Pages. When deployed to GitHub Pages, the app uses demo stories instead of AI-generated ones (since GitHub Pages doesn't support backend APIs).
+
+1. **Enable GitHub Pages:**
+   - Go to your repository Settings → Pages
+   - Under "Source", select "GitHub Actions"
+
+2. **Push to main branch:**
+   ```bash
+   git add .
+   git commit -m "Deploy to GitHub Pages"
+   git push origin main
+   ```
+   The GitHub Actions workflow will automatically build and deploy to GitHub Pages.
+
+3. **Access your site:**
+   - Your site will be available at `https://username.github.io/talewhale/`
+
+**Note:** To use AI story generation, deploy to a platform with backend support (Vercel, Netlify with Functions, etc.)
+
+### Vercel (With AI Support)
+For full AI-powered story generation:
+
+1. Connect your GitHub repo to Vercel
+2. Set environment variables in Vercel dashboard:
+   - `LLM_PROVIDER=groq`
+   - `LLM_API_KEY=your_api_key`
+3. Deploy - Vercel will automatically build and deploy on push
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

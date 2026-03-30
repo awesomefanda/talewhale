@@ -11,6 +11,24 @@ const PROMPTS_EXAMPLES = [
   { text: "A dinosaur's first day at school", icon: "🦕" },
 ];
 
+const FALLBACK_STORY = {
+  panels: [
+    {
+      layout: "full",
+      narration: "Once upon a time, in a magical forest, lived a little fox named Finnegan.",
+      sceneHint: "forest_night",
+      bubbles: [{ text: "I wonder what's beyond those trees?", x: 50, y: 40, speaker: "Finnegan" }]
+    },
+    {
+      layout: "wide",
+      narration: "Suddenly, he saw a glowing path lead towards the mountains.",
+      sceneHint: "sky",
+      sfx: { text: "WHOOSH!", x: 50, y: 50 }
+    }
+  ],
+  choices: ["Follow the path", "Go back home", "Ask a friend for help"]
+};
+
 function ChoiceButton({ text, index, onClick, disabled }) {
   const [hover, setHover] = useState(false);
   const emojis = ["⚡", "💫", "🔮"];
@@ -86,7 +104,8 @@ export default function Home() {
     setError(null);
 
     try {
-      const response = await fetch("/api/generate", {
+      const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+      const response = await fetch(`${basePath}/api/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -103,33 +122,33 @@ export default function Home() {
         throw new Error(errorMsg);
       }
 
-      const newHistory = historyData ?? chapters;
-      setChapters(prev => [...prev, data]);
-      setCurrentPage(newHistory.length);
+      setChapters(prev => {
+        const updated = [...prev, data];
+        setCurrentPage(updated.length - 1);
+        return updated;
+      });
     } catch (err) {
       console.error("Generation error:", err);
-      setError(err.message || "Oops! Let's try that again.");
+      // Use fallback story if API is not available (e.g., GitHub Pages)
+      try {
+        setChapters(prev => {
+          const updated = [...prev, FALLBACK_STORY];
+          setCurrentPage(updated.length - 1);
+          return updated;
+        });
+        setError(null);
+      } catch (fallbackErr) {
+        setError(err.message || "Oops! Let's try that again.");
+      }
     } finally {
       setLoading(false);
       if (contentRef.current) contentRef.current.scrollTop = 0;
     }
   }, [prompt, chapters]);
 
-  const startStory = (text) => {
-    const finalPrompt = text || prompt;
-    if (!finalPrompt.trim()) return;
-    
-    setPrompt(finalPrompt);
-    setChapters([]);
-    setCurrentPage(0);
-    setError(null);
-    setScreen("reading");
-    
-    // Call generateChapter with the prompt directly instead of relying on state
-    generateChapter(null, finalPrompt, []);
-  };
-
-  const makeChoice = (i) => generateChapter(i, prompt, chapters);
+  const makeChoice = useCallback((index) => {
+    generateChapter(index, prompt, chapters);
+  }, [generateChapter, prompt, chapters]);
 
   const goToPage = (dir) => {
     const next = currentPage + dir;
