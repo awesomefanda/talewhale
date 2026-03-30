@@ -1,0 +1,136 @@
+{
+  "id": "candy-garden",
+  "title": "A Magical Candy Garden",
+  "coverEmoji": "🍬",
+  "ageRange": "4-8",
+  "tags": ["magic", "food", "wonder"],
+  "chapters": {
+    "ch1": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Little Lily was digging in her garden when her shovel hit something soft and sweet-smelling!",
+          "narrationPos": "top",
+          "sceneHint": "garden",
+          "bubbles": [{ "text": "These flowers are made of CANDY!", "x": 60, "y": 62, "tailDir": "left", "type": "shout", "speaker": "Lily" }]
+        },
+        {
+          "layout": "wide",
+          "narration": "She tasted one tiny petal — the most amazing strawberry flavour she had ever tasted!",
+          "narrationPos": "top",
+          "sceneHint": "garden",
+          "sfx": { "text": "CRUNCH!", "x": 50, "y": 62, "color": "#fd79a8" },
+          "bubbles": [{ "text": "Mmmmm... this is MAGIC!", "x": 52, "y": 78, "tailDir": "center", "type": "thought", "speaker": "Lily" }]
+        },
+        {
+          "layout": "right",
+          "narration": "The whole garden sparkled — and more candy flowers burst out of the ground!",
+          "narrationPos": "top",
+          "sceneHint": "garden",
+          "sfx": { "text": "POP! POP! POP!", "x": 45, "y": 65, "color": "#a29bfe" },
+          "bubbles": []
+        }
+      ],
+      "choices": [
+        { "text": "Build a castle out of candy!", "next": "ch2a" },
+        { "text": "Share the candy with all your friends", "next": "ch2b" },
+        { "text": "Plant magical seeds to grow more", "next": "ch2c" }
+      ]
+    },
+    "ch2a": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Lily stacked gummy bricks and lollipop towers — a magnificent candy castle rose up!",
+          "narrationPos": "top",
+          "sceneHint": "castle",
+          "bubbles": [{ "text": "A CANDY CASTLE! All mine!", "x": 58, "y": 62, "tailDir": "center", "type": "shout", "speaker": "Lily" }]
+        },
+        {
+          "layout": "wide",
+          "narration": "News of the candy castle spread, and soon kids came from miles around to see it!",
+          "narrationPos": "bottom",
+          "sceneHint": "castle",
+          "sfx": { "text": "WOW!", "x": 50, "y": 35, "color": "#ffd93d" },
+          "bubbles": [{ "text": "Can we come inside?!", "x": 55, "y": 55, "tailDir": "center", "type": "shout", "speaker": "Crowd of Kids" }]
+        }
+      ],
+      "choices": [
+        { "text": "Open the castle to everyone!", "next": "ch3" },
+        { "text": "Add a chocolate moat!", "next": "ch3" }
+      ]
+    },
+    "ch2b": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Lily ran to tell her friends, and they rushed to the magic garden with bags and buckets!",
+          "narrationPos": "top",
+          "sceneHint": "garden",
+          "bubbles": [
+            { "text": "Everyone pick their favourite!", "x": 42, "y": 58, "tailDir": "right", "type": "shout", "speaker": "Lily" },
+            { "text": "YIPPEEEE!", "x": 68, "y": 42, "tailDir": "left", "type": "shout", "speaker": "Friends" }
+          ]
+        },
+        {
+          "layout": "wide",
+          "narration": "The garden magically grew MORE candy every time someone shared — it never ran out!",
+          "narrationPos": "bottom",
+          "sceneHint": "sky",
+          "sfx": { "text": "CANDY RAIN!", "x": 50, "y": 35, "color": "#fd79a8" },
+          "bubbles": [{ "text": "More we share, more it grows!", "x": 50, "y": 55, "tailDir": "center", "type": "normal", "speaker": "Lily" }]
+        }
+      ],
+      "choices": [
+        { "text": "Dance in the candy rain!", "next": "ch3" },
+        { "text": "Make a candy rainbow bridge", "next": "ch3" }
+      ]
+    },
+    "ch2c": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Lily planted the magical seeds and watered them with lemonade — GIANT candy trees shot up overnight!",
+          "narrationPos": "top",
+          "sceneHint": "garden",
+          "sfx": { "text": "SPROOOIING!", "x": 50, "y": 65, "color": "#00b894" },
+          "bubbles": [{ "text": "Popcorn trees! Ice cream bushes!", "x": 55, "y": 80, "tailDir": "center", "type": "shout", "speaker": "Lily" }]
+        },
+        {
+          "layout": "wide",
+          "narration": "Lollipop trees, marshmallow clouds, and a river of fizzy strawberry lemonade!",
+          "narrationPos": "bottom",
+          "sceneHint": "garden",
+          "bubbles": [{ "text": "This is better than any dream!", "x": 50, "y": 35, "tailDir": "center", "type": "thought", "speaker": "Lily" }]
+        }
+      ],
+      "choices": [
+        { "text": "Open a candy shop!", "next": "ch3" },
+        { "text": "Send candy baskets to all kids", "next": "ch3" }
+      ]
+    },
+    "ch3": {
+      "panels": [
+        {
+          "layout": "wide",
+          "narration": "As the sun set, the Magical Candy Garden glowed with a warm, sweet, golden light.",
+          "narrationPos": "top",
+          "sceneHint": "garden",
+          "sfx": { "text": "SPARKLE!", "x": 50, "y": 58, "color": "#ffd93d" },
+          "bubbles": [{ "text": "Best garden ever!", "x": 52, "y": 75, "tailDir": "center", "type": "shout", "speaker": "Lily" }]
+        },
+        {
+          "layout": "full",
+          "narration": "Lily hugged her candy flowers. She knew that magic grows best when you share it with others.",
+          "narrationPos": "bottom",
+          "sceneHint": "garden",
+          "bubbles": [
+            { "text": "I'll take care of you forever!", "x": 42, "y": 32, "tailDir": "right", "type": "normal", "speaker": "Lily" },
+            { "text": "And we'll always be here for you!", "x": 65, "y": 18, "tailDir": "left", "type": "thought", "speaker": "The Garden" }
+          ]
+        }
+      ],
+      "choices": null
+    }
+  }
+}

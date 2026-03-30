@@ -1,0 +1,133 @@
+{
+  "id": "robot-painter",
+  "title": "A Robot Who Wants to Paint",
+  "coverEmoji": "🤖",
+  "ageRange": "5-9",
+  "tags": ["creativity", "art", "magic"],
+  "chapters": {
+    "ch1": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Bolt the little robot had cleaned every dish and fixed every clock — but today he found a paintbrush!",
+          "narrationPos": "top",
+          "sceneHint": "bedroom",
+          "bubbles": [{ "text": "What does this tool DO?", "x": 58, "y": 62, "tailDir": "left", "type": "thought", "speaker": "Bolt" }]
+        },
+        {
+          "layout": "wide",
+          "narration": "He splashed colours everywhere — a wild, wonderfully messy rainbow explosion!",
+          "narrationPos": "top",
+          "sceneHint": "bedroom",
+          "sfx": { "text": "SPLAT! SQUISH! SWOOSH!", "x": 50, "y": 58, "color": "#fd79a8" },
+          "bubbles": [{ "text": "Oh no... this is not tidy at all!", "x": 50, "y": 78, "tailDir": "center", "type": "whisper", "speaker": "Bolt" }]
+        },
+        {
+          "layout": "right",
+          "narration": "But then — the painting BLINKED! It was ALIVE! Bolt's art had become real!",
+          "narrationPos": "top",
+          "sceneHint": "bedroom",
+          "sfx": { "text": "ZAP!", "x": 45, "y": 55, "color": "#ffd93d" },
+          "bubbles": [{ "text": "My painting is MOVING!", "x": 55, "y": 75, "tailDir": "center", "type": "shout", "speaker": "Bolt" }]
+        }
+      ],
+      "choices": [
+        { "text": "Paint a zooming spaceship!", "next": "ch2a" },
+        { "text": "Paint a friendly fluffy monster", "next": "ch2b" },
+        { "text": "Paint a glowing magical forest", "next": "ch2c" }
+      ]
+    },
+    "ch2a": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Bolt painted a sleek silver spaceship with blinking lights — and it WHOOSHED out of the canvas!",
+          "narrationPos": "top",
+          "sceneHint": "space",
+          "sfx": { "text": "BLAST OFF!", "x": 30, "y": 58, "color": "#74b9ff" },
+          "bubbles": [{ "text": "A real spaceship! Made by ME!", "x": 65, "y": 72, "tailDir": "left", "type": "shout", "speaker": "Bolt" }]
+        },
+        {
+          "layout": "wide",
+          "narration": "The spaceship opened its door. Bolt and his friends hopped in and shot off into the starry sky!",
+          "narrationPos": "bottom",
+          "sceneHint": "space",
+          "bubbles": [{ "text": "Stars everywhere! This is AMAZING!", "x": 50, "y": 35, "tailDir": "center", "type": "shout", "speaker": "Bolt" }]
+        }
+      ],
+      "choices": [
+        { "text": "Visit an ice cream planet!", "next": "ch3" },
+        { "text": "Meet alien friends in space", "next": "ch3" }
+      ]
+    },
+    "ch2b": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "A giant fluffy purple monster with polka dots bounced out of the painting — and it was smiling!",
+          "narrationPos": "top",
+          "sceneHint": "garden",
+          "sfx": { "text": "BOING!", "x": 50, "y": 58, "color": "#a29bfe" },
+          "bubbles": [{ "text": "ROAR!... I mean... hello friend!", "x": 55, "y": 75, "tailDir": "center", "type": "shout", "speaker": "Monster" }]
+        },
+        {
+          "layout": "wide",
+          "narration": "The monster was gentle as a kitten — it just loved giving enormous warm hugs!",
+          "narrationPos": "bottom",
+          "sceneHint": "garden",
+          "bubbles": [{ "text": "I always wanted a monster friend!", "x": 52, "y": 35, "tailDir": "right", "type": "thought", "speaker": "Bolt" }]
+        }
+      ],
+      "choices": [
+        { "text": "Teach the monster to paint!", "next": "ch3" },
+        { "text": "Go on a picnic adventure", "next": "ch3" }
+      ]
+    },
+    "ch2c": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Bolt's painting of a forest grew and grew until it burst through the walls — glowing with magic!",
+          "narrationPos": "top",
+          "sceneHint": "forest_night",
+          "sfx": { "text": "WHOOOM!", "x": 50, "y": 58, "color": "#00cec9" },
+          "bubbles": [{ "text": "I painted a whole WORLD!", "x": 55, "y": 75, "tailDir": "center", "type": "shout", "speaker": "Bolt" }]
+        },
+        {
+          "layout": "wide",
+          "narration": "Tiny glowing fairies no bigger than your thumb flew out from between the painted trees!",
+          "narrationPos": "bottom",
+          "sceneHint": "forest_night",
+          "bubbles": [
+            { "text": "Welcome, painter!", "x": 35, "y": 38, "tailDir": "right", "type": "whisper", "speaker": "Fairy" },
+            { "text": "I made this place for you!", "x": 65, "y": 55, "tailDir": "left", "type": "normal", "speaker": "Bolt" }
+          ]
+        }
+      ],
+      "choices": [
+        { "text": "Dance with the fairies!", "next": "ch3" },
+        { "text": "Paint more magical creatures", "next": "ch3" }
+      ]
+    },
+    "ch3": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Bolt looked at his room, now filled with the most incredible art any robot had ever made.",
+          "narrationPos": "top",
+          "sceneHint": "bedroom",
+          "bubbles": [{ "text": "I didn't know I could create things!", "x": 52, "y": 62, "tailDir": "center", "type": "thought", "speaker": "Bolt" }]
+        },
+        {
+          "layout": "wide",
+          "narration": "From that day on, Bolt painted every day — and every painting brought a new adventure to life!",
+          "narrationPos": "bottom",
+          "sceneHint": "bedroom",
+          "sfx": { "text": "MAGIC!", "x": 50, "y": 38, "color": "#ffd93d" },
+          "bubbles": [{ "text": "Art is the best superpower!", "x": 52, "y": 58, "tailDir": "center", "type": "shout", "speaker": "Bolt" }]
+        }
+      ],
+      "choices": null
+    }
+  }
+}

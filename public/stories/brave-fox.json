@@ -1,0 +1,145 @@
+{
+  "id": "brave-fox",
+  "title": "A Brave Little Fox",
+  "coverEmoji": "🦊",
+  "ageRange": "4-8",
+  "tags": ["adventure", "animals", "friendship"],
+  "chapters": {
+    "ch1": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "In the Whispering Woods, little Finnegan the Fox spotted something gleaming in the grass — a golden feather!",
+          "narrationPos": "top",
+          "sceneHint": "forest_night",
+          "bubbles": [{ "text": "What's this sparkly thing?!", "x": 62, "y": 60, "tailDir": "left", "type": "shout", "speaker": "Finnegan" }]
+        },
+        {
+          "layout": "left",
+          "narration": "He touched the feather — and tingled all the way to the tip of his tail!",
+          "narrationPos": "bottom",
+          "sceneHint": "garden",
+          "bubbles": [{ "text": "My paws feel so... light!", "x": 52, "y": 35, "tailDir": "center", "type": "thought", "speaker": "Finnegan" }]
+        },
+        {
+          "layout": "right",
+          "narration": "Finnegan jumped — and floated in the air for a whole magical second!",
+          "narrationPos": "top",
+          "sceneHint": "sky",
+          "sfx": { "text": "WHOOOOSH!", "x": 50, "y": 65, "color": "#ffd93d" },
+          "bubbles": []
+        }
+      ],
+      "choices": [
+        { "text": "Climb the tallest tree and leap!", "next": "ch2a" },
+        { "text": "Find the wise Owl for help", "next": "ch2b" },
+        { "text": "Follow the trail of sparkles", "next": "ch2c" }
+      ]
+    },
+    "ch2a": {
+      "panels": [
+        {
+          "layout": "wide",
+          "narration": "Finnegan scrambled up the Giant Oak, higher than he had ever climbed before!",
+          "narrationPos": "top",
+          "sceneHint": "forest_night",
+          "bubbles": [{ "text": "Don't look down... don't look down!", "x": 62, "y": 62, "tailDir": "right", "type": "whisper", "speaker": "Finnegan" }]
+        },
+        {
+          "layout": "full",
+          "narration": "He clutched the feather tight and LEAPED into the sky with all his might!",
+          "narrationPos": "top",
+          "sceneHint": "sky",
+          "sfx": { "text": "ZOOM!", "x": 22, "y": 55, "color": "#ff6b6b" },
+          "bubbles": [{ "text": "I'M FLYING! I'M REALLY FLYING!!!", "x": 65, "y": 72, "tailDir": "left", "type": "shout", "speaker": "Finnegan" }]
+        }
+      ],
+      "choices": [
+        { "text": "Fly over the rainbow!", "next": "ch3" },
+        { "text": "Swoop down to help a lost bunny", "next": "ch3" }
+      ]
+    },
+    "ch2b": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Deep in the moonlit forest, Finnegan found the ancient Owl called Hoo on his favourite branch.",
+          "narrationPos": "bottom",
+          "sceneHint": "forest_night",
+          "bubbles": [
+            { "text": "Hooo! The feather chose YOU!", "x": 68, "y": 22, "tailDir": "left", "type": "normal", "speaker": "Hoo the Owl" },
+            { "text": "Can you teach me to fly?", "x": 35, "y": 48, "tailDir": "right", "type": "normal", "speaker": "Finnegan" }
+          ]
+        },
+        {
+          "layout": "wide",
+          "narration": "Hoo wrapped a magical flying scarf around Finnegan — and together they soared into the night sky!",
+          "narrationPos": "bottom",
+          "sceneHint": "sky",
+          "sfx": { "text": "WHOOSH!", "x": 72, "y": 38, "color": "#a29bfe" },
+          "bubbles": [{ "text": "I can feel the whole world below!", "x": 38, "y": 30, "tailDir": "right", "type": "shout", "speaker": "Finnegan" }]
+        }
+      ],
+      "choices": [
+        { "text": "Fly to the top of the rainbow!", "next": "ch3" },
+        { "text": "Explore the land above the clouds", "next": "ch3" }
+      ]
+    },
+    "ch2c": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "The golden sparkles led Finnegan to a hidden meadow no fox had ever found before!",
+          "narrationPos": "top",
+          "sceneHint": "garden",
+          "bubbles": [{ "text": "This place is incredible!", "x": 55, "y": 62, "tailDir": "center", "type": "shout", "speaker": "Finnegan" }]
+        },
+        {
+          "layout": "left",
+          "narration": "A tiny dragon with rainbow wings poked her head out from behind the flowers!",
+          "narrationPos": "bottom",
+          "sceneHint": "garden",
+          "bubbles": [
+            { "text": "Hi! I'm Ember! Want to fly?", "x": 62, "y": 32, "tailDir": "left", "type": "normal", "speaker": "Ember" },
+            { "text": "YES PLEASE!!!", "x": 42, "y": 55, "tailDir": "right", "type": "shout", "speaker": "Finnegan" }
+          ]
+        },
+        {
+          "layout": "right",
+          "narration": "Ember flapped her rainbow wings and began to teach Finnegan everything she knew!",
+          "narrationPos": "top",
+          "sceneHint": "sky",
+          "sfx": { "text": "FLUTTER!", "x": 50, "y": 65, "color": "#fd79a8" },
+          "bubbles": []
+        }
+      ],
+      "choices": [
+        { "text": "Soar above the rainbow clouds!", "next": "ch3" },
+        { "text": "Fly to the Dragon Kingdom", "next": "ch3" }
+      ]
+    },
+    "ch3": {
+      "panels": [
+        {
+          "layout": "wide",
+          "narration": "Finnegan the Fox soared over the Whispering Woods, his bushy tail streaming behind him like a flag!",
+          "narrationPos": "top",
+          "sceneHint": "sky",
+          "sfx": { "text": "SWOOOOSH!", "x": 50, "y": 55, "color": "#ffd93d" },
+          "bubbles": [{ "text": "The sky is my home now!", "x": 62, "y": 72, "tailDir": "left", "type": "shout", "speaker": "Finnegan" }]
+        },
+        {
+          "layout": "full",
+          "narration": "His whole family watched from the forest floor, mouths open wide with amazement and pride.",
+          "narrationPos": "bottom",
+          "sceneHint": "forest_night",
+          "bubbles": [
+            { "text": "That's our Finnegan!", "x": 32, "y": 40, "tailDir": "right", "type": "shout", "speaker": "Mama Fox" },
+            { "text": "Braver than any fox ever!", "x": 68, "y": 22, "tailDir": "left", "type": "normal", "speaker": "Papa Fox" }
+          ]
+        }
+      ],
+      "choices": null
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "id": "dino-school",
+  "title": "A Dinosaur's First Day at School",
+  "coverEmoji": "🦕",
+  "ageRange": "4-8",
+  "tags": ["school", "friendship", "being different"],
+  "chapters": {
+    "ch1": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Dino nervously stomped up to Sunny Hills School — but the doorway was a little too small.",
+          "narrationPos": "top",
+          "sceneHint": "school",
+          "sfx": { "text": "STOMP STOMP STOMP!", "x": 50, "y": 65, "color": "#00b894" },
+          "bubbles": [{ "text": "What if the kids think I'm too big?", "x": 55, "y": 80, "tailDir": "center", "type": "thought", "speaker": "Dino" }]
+        },
+        {
+          "layout": "wide",
+          "narration": "The tiny chairs creaked under Dino's weight — but the teacher smiled warmly!",
+          "narrationPos": "bottom",
+          "sceneHint": "school",
+          "bubbles": [
+            { "text": "Welcome, Dino! We're so happy you're here!", "x": 38, "y": 30, "tailDir": "right", "type": "normal", "speaker": "Mrs. Sunny" },
+            { "text": "Really?!", "x": 68, "y": 50, "tailDir": "left", "type": "shout", "speaker": "Dino" }
+          ]
+        },
+        {
+          "layout": "right",
+          "narration": "One small girl in pigtails marched straight up to Dino without a single bit of fear!",
+          "narrationPos": "top",
+          "sceneHint": "school",
+          "bubbles": [{ "text": "I'm Rosa! Wanna be best friends?", "x": 48, "y": 62, "tailDir": "right", "type": "normal", "speaker": "Rosa" }]
+        }
+      ],
+      "choices": [
+        { "text": "Try to sit in the tiny chair!", "next": "ch2a" },
+        { "text": "Sit on the floor with Rosa", "next": "ch2b" },
+        { "text": "Help Mrs. Sunny set up the classroom", "next": "ch2c" }
+      ]
+    },
+    "ch2a": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Dino squeezed into the tiny chair — and it made a sound like a tuba going SQUEAK!",
+          "narrationPos": "top",
+          "sceneHint": "school",
+          "sfx": { "text": "SQUEEEAK! CRUNCH!", "x": 50, "y": 62, "color": "#e17055" },
+          "bubbles": [{ "text": "Oops... maybe I'll stand instead?", "x": 55, "y": 78, "tailDir": "center", "type": "whisper", "speaker": "Dino" }]
+        },
+        {
+          "layout": "wide",
+          "narration": "The whole class giggled — but Dino made the funniest face ever, and soon everyone laughed together!",
+          "narrationPos": "bottom",
+          "sceneHint": "school",
+          "bubbles": [
+            { "text": "Ha ha ha ha ha!", "x": 40, "y": 35, "tailDir": "right", "type": "shout", "speaker": "Class" },
+            { "text": "This is actually pretty funny!", "x": 65, "y": 55, "tailDir": "left", "type": "shout", "speaker": "Dino" }
+          ]
+        }
+      ],
+      "choices": [
+        { "text": "Ask for a big special chair", "next": "ch3" },
+        { "text": "Turn it into a comedy show!", "next": "ch3" }
+      ]
+    },
+    "ch2b": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "Dino sat carefully on the floor, and Rosa plopped down right next to the giant scaly knee.",
+          "narrationPos": "top",
+          "sceneHint": "school",
+          "bubbles": [
+            { "text": "The floor is better anyway!", "x": 42, "y": 60, "tailDir": "right", "type": "normal", "speaker": "Rosa" },
+            { "text": "You know what? You're right!", "x": 65, "y": 75, "tailDir": "left", "type": "shout", "speaker": "Dino" }
+          ]
+        },
+        {
+          "layout": "wide",
+          "narration": "Rosa showed Dino how to hold a crayon with his big claws — it was trickier than it looked!",
+          "narrationPos": "bottom",
+          "sceneHint": "school",
+          "sfx": { "text": "SCRIBBLE SCRIBBLE!", "x": 50, "y": 35, "color": "#fd79a8" },
+          "bubbles": [{ "text": "I'm actually drawing something!", "x": 52, "y": 55, "tailDir": "center", "type": "thought", "speaker": "Dino" }]
+        }
+      ],
+      "choices": [
+        { "text": "Draw a giant dinosaur picture!", "next": "ch3" },
+        { "text": "Teach Rosa how to ROAR", "next": "ch3" }
+      ]
+    },
+    "ch2c": {
+      "panels": [
+        {
+          "layout": "wide",
+          "narration": "Dino's long neck could reach the very top shelves — things no one had been able to reach all year!",
+          "narrationPos": "top",
+          "sceneHint": "school",
+          "sfx": { "text": "STRETCH!", "x": 50, "y": 55, "color": "#00b894" },
+          "bubbles": [{ "text": "I can reach them all! What else needs help?", "x": 52, "y": 72, "tailDir": "center", "type": "shout", "speaker": "Dino" }]
+        },
+        {
+          "layout": "full",
+          "narration": "Mrs. Sunny gave Dino a shiny gold sticker — BEST CLASS HELPER — and the whole class cheered!",
+          "narrationPos": "bottom",
+          "sceneHint": "school",
+          "bubbles": [
+            { "text": "Three cheers for Dino!", "x": 42, "y": 32, "tailDir": "right", "type": "shout", "speaker": "Class" },
+            { "text": "I feel like I BELONG here!", "x": 65, "y": 52, "tailDir": "left", "type": "thought", "speaker": "Dino" }
+          ]
+        }
+      ],
+      "choices": [
+        { "text": "Help put up the classroom decorations!", "next": "ch3" },
+        { "text": "Read a story to the whole class", "next": "ch3" }
+      ]
+    },
+    "ch3": {
+      "panels": [
+        {
+          "layout": "full",
+          "narration": "When the bell rang, the whole class rushed to hug Dino's big scaly legs!",
+          "narrationPos": "top",
+          "sceneHint": "school",
+          "sfx": { "text": "SQUISH HUG!", "x": 50, "y": 38, "color": "#fd79a8" },
+          "bubbles": [
+            { "text": "Will you come back TOMORROW?!", "x": 40, "y": 60, "tailDir": "right", "type": "shout", "speaker": "Class" },
+            { "text": "You couldn't stop me!", "x": 65, "y": 75, "tailDir": "left", "type": "shout", "speaker": "Dino" }
+          ]
+        },
+        {
+          "layout": "wide",
+          "narration": "Dino stomped home with the biggest dino-grin anyone had ever seen. Being different was actually pretty great!",
+          "narrationPos": "bottom",
+          "sceneHint": "school",
+          "bubbles": [{ "text": "Best. First day. EVER!", "x": 52, "y": 35, "tailDir": "center", "type": "shout", "speaker": "Dino" }]
+        }
+      ],
+      "choices": null
+    }
+  }
+}
