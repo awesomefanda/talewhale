@@ -12,22 +12,28 @@
           "narration": "Maya found a tiny golden spyglass hidden in a box in the attic!",
           "narrationPos": "top",
           "sceneHint": "bedroom",
-          "bubbles": [{ "text": "What is THIS thing?!", "x": 58, "y": 62, "tailDir": "left", "type": "shout", "speaker": "Maya" }]
+          "bubbles": [{ "text": "What is THIS magical thing?!", "x": 58, "y": 62, "tailDir": "left", "type": "shout", "speaker": "Maya" }]
         },
         {
-          "layout": "left",
+          "layout": "wide",
           "narration": "When she looked through it, everything sparkled with a magical golden glow!",
-          "narrationPos": "bottom",
-          "sceneHint": "bedroom",
-          "sfx": { "text": "SPARKLE!", "x": 55, "y": 38, "color": "#ffd93d" },
-          "bubbles": [{ "text": "I can see... magic things!", "x": 50, "y": 62, "tailDir": "center", "type": "thought", "speaker": "Maya" }]
-        },
-        {
-          "layout": "right",
-          "narration": "A glowing message appeared in the air: I SPY... something wonderful waiting for you!",
           "narrationPos": "top",
           "sceneHint": "bedroom",
-          "bubbles": [{ "text": "A treasure hunt! Let's GO!", "x": 50, "y": 72, "tailDir": "center", "type": "shout", "speaker": "Maya" }]
+          "sfx": { "text": "SPARKLE!", "x": 72, "y": 55, "color": "#ffd93d" },
+          "bubbles": [{ "text": "I can see hidden things!", "x": 35, "y": 62, "tailDir": "right", "type": "thought", "speaker": "Maya" }]
+        },
+        {
+          "layout": "full",
+          "narration": "The spyglass showed Maya her bedroom — but something was different. Things were hiding! Can you find them?",
+          "narrationPos": "top",
+          "sceneHint": "bedroom",
+          "spotPrompt": "I SPY 3 hidden things! TAP each one to find it!",
+          "spotItems": [
+            { "emoji": "⭐", "x": 20, "y": 35, "fontSize": "26px" },
+            { "emoji": "🌙", "x": 75, "y": 55, "fontSize": "26px" },
+            { "emoji": "🦋", "x": 50, "y": 72, "fontSize": "26px" }
+          ],
+          "bubbles": []
         }
       ],
       "choices": [
@@ -36,102 +42,133 @@
         { "text": "I spy something GLOWING in the forest!", "next": "ch2c" }
       ]
     },
+
     "ch2a": {
       "panels": [
         {
           "layout": "full",
-          "narration": "Maya ran to the garden and looked through the spyglass. Something glittered behind the roses!",
+          "narration": "Maya ran to the garden. Through the spyglass, hidden treasures were scattered everywhere!",
           "narrationPos": "top",
           "sceneHint": "garden",
-          "bubbles": [{ "text": "I spy... something golden!", "x": 55, "y": 62, "tailDir": "center", "type": "normal", "speaker": "Maya" }]
+          "spotPrompt": "I SPY 4 hidden gems! TAP each one!",
+          "spotItems": [
+            { "emoji": "💎", "x": 18, "y": 40, "fontSize": "24px" },
+            { "emoji": "💎", "x": 60, "y": 28, "fontSize": "24px" },
+            { "emoji": "💎", "x": 80, "y": 62, "fontSize": "24px" },
+            { "emoji": "🌟", "x": 35, "y": 68, "fontSize": "24px" }
+          ],
+          "bubbles": []
         },
         {
           "layout": "wide",
-          "narration": "She dug carefully and found a treasure chest full of magical rainbow gems!",
+          "narration": "She dug carefully and found a treasure chest bursting with magical rainbow gems!",
           "narrationPos": "bottom",
           "sceneHint": "garden",
           "sfx": { "text": "BLING!", "x": 50, "y": 35, "color": "#ffd93d" },
           "bubbles": [
-            { "text": "GEMS! Real magic gems!", "x": 45, "y": 58, "tailDir": "right", "type": "shout", "speaker": "Maya" },
+            { "text": "GEMS! Real magic gems!", "x": 38, "y": 55, "tailDir": "right", "type": "shout", "speaker": "Maya" },
             { "text": "Well spotted, little spy!", "x": 68, "y": 38, "tailDir": "left", "type": "thought", "speaker": "The Spyglass" }
           ]
         }
       ],
       "choices": [
-        { "text": "I spy something tiny hiding in the gems!", "next": "ch3" },
-        { "text": "I spy a map hidden under the chest!", "next": "ch3" }
+        { "text": "I spy a tiny creature inside the chest!", "next": "ch3" },
+        { "text": "I spy a secret map under the chest!", "next": "ch3" }
       ]
     },
+
     "ch2b": {
       "panels": [
         {
           "layout": "full",
-          "narration": "Maya looked up through the spyglass. One cloud was fluffier than all the rest — and moving on its own!",
+          "narration": "Maya looked up at the sky. Hidden among the clouds were magical creatures!",
           "narrationPos": "top",
           "sceneHint": "sky",
-          "bubbles": [{ "text": "That cloud has... a mane?!", "x": 55, "y": 62, "tailDir": "center", "type": "thought", "speaker": "Maya" }]
+          "spotPrompt": "I SPY 4 cloud animals! TAP each one to find it!",
+          "spotItems": [
+            { "emoji": "🦄", "x": 22, "y": 38, "fontSize": "26px" },
+            { "emoji": "🐉", "x": 65, "y": 30, "fontSize": "26px" },
+            { "emoji": "🦋", "x": 45, "y": 62, "fontSize": "24px" },
+            { "emoji": "🌈", "x": 78, "y": 58, "fontSize": "24px" }
+          ],
+          "bubbles": []
         },
         {
           "layout": "wide",
-          "narration": "A cloud pony floated gently down and nuzzled Maya's nose with its soft, misty snout!",
+          "narration": "A cloud pony floated down and nuzzled Maya's nose with its soft, misty snout!",
           "narrationPos": "bottom",
           "sceneHint": "sky",
           "sfx": { "text": "WHOOOOSH!", "x": 50, "y": 35, "color": "#a29bfe" },
           "bubbles": [
-            { "text": "A CLOUD PONY! You're real!", "x": 38, "y": 58, "tailDir": "right", "type": "shout", "speaker": "Maya" },
-            { "text": "Neigh! You found me!", "x": 65, "y": 40, "tailDir": "left", "type": "normal", "speaker": "Cloud Pony" }
+            { "text": "A CLOUD PONY! You're real!", "x": 38, "y": 55, "tailDir": "right", "type": "shout", "speaker": "Maya" },
+            { "text": "You found me! Neigh!", "x": 65, "y": 40, "tailDir": "left", "type": "normal", "speaker": "Cloud Pony" }
           ]
         }
       ],
       "choices": [
         { "text": "I spy a rainbow stable beyond the clouds!", "next": "ch3" },
-        { "text": "I spy other cloud animals hiding nearby!", "next": "ch3" }
+        { "text": "I spy other cloud friends hiding nearby!", "next": "ch3" }
       ]
     },
+
     "ch2c": {
       "panels": [
         {
           "layout": "full",
-          "narration": "Maya crept into the forest. Through the spyglass, tiny lights danced between the trees!",
+          "narration": "Maya crept into the forest at dusk. Magical things were hiding among the trees!",
           "narrationPos": "top",
           "sceneHint": "forest_night",
-          "bubbles": [{ "text": "I spy... a hundred tiny lights!", "x": 55, "y": 62, "tailDir": "center", "type": "whisper", "speaker": "Maya" }]
+          "spotPrompt": "I SPY 4 magical things! TAP each one!",
+          "spotItems": [
+            { "emoji": "🧚", "x": 20, "y": 42, "fontSize": "24px" },
+            { "emoji": "🍄", "x": 68, "y": 35, "fontSize": "26px" },
+            { "emoji": "✨", "x": 40, "y": 65, "fontSize": "24px" },
+            { "emoji": "🦔", "x": 78, "y": 62, "fontSize": "22px" }
+          ],
+          "bubbles": []
         },
         {
           "layout": "wide",
-          "narration": "The lights were fairies — a whole village of them — and they had been waiting for the spy to arrive!",
+          "narration": "The glowing lights were fairies — a whole village of them — waiting for the spy to arrive!",
           "narrationPos": "bottom",
           "sceneHint": "forest_night",
           "sfx": { "text": "TWINKLE!", "x": 50, "y": 35, "color": "#ffeaa7" },
           "bubbles": [
-            { "text": "The Spy is HERE! She found us!", "x": 40, "y": 55, "tailDir": "right", "type": "shout", "speaker": "Fairies" },
-            { "text": "I... I spy FAIRIES!", "x": 65, "y": 40, "tailDir": "left", "type": "shout", "speaker": "Maya" }
+            { "text": "The Spy is here! She found us!", "x": 38, "y": 55, "tailDir": "right", "type": "shout", "speaker": "Fairies" },
+            { "text": "I spy FAIRIES!", "x": 65, "y": 40, "tailDir": "left", "type": "shout", "speaker": "Maya" }
           ]
         }
       ],
       "choices": [
-        { "text": "I spy a tiny fairy door at the tree roots!", "next": "ch3" },
+        { "text": "I spy a tiny fairy door at the roots!", "next": "ch3" },
         { "text": "I spy a fairy crown just my size!", "next": "ch3" }
       ]
     },
+
     "ch3": {
       "panels": [
         {
           "layout": "full",
-          "narration": "Through the magical spyglass, Maya could see one last thing glowing at home — her own front door!",
+          "narration": "Through the spyglass, Maya could see one last thing glowing — right at home!",
           "narrationPos": "top",
-          "sceneHint": "city",
-          "bubbles": [{ "text": "I spy... the best place of all!", "x": 55, "y": 62, "tailDir": "center", "type": "thought", "speaker": "Maya" }]
+          "sceneHint": "bedroom",
+          "spotPrompt": "FINAL CHALLENGE — I SPY 5 hidden stars! Find them all!",
+          "spotItems": [
+            { "emoji": "⭐", "x": 15, "y": 30, "fontSize": "22px" },
+            { "emoji": "⭐", "x": 82, "y": 25, "fontSize": "22px" },
+            { "emoji": "⭐", "x": 50, "y": 45, "fontSize": "22px" },
+            { "emoji": "⭐", "x": 25, "y": 70, "fontSize": "22px" },
+            { "emoji": "⭐", "x": 72, "y": 68, "fontSize": "22px" }
+          ],
+          "bubbles": []
         },
         {
           "layout": "wide",
-          "narration": "Maya ran home, heart full of wonder. The whole world was magic — you just had to know how to look!",
+          "narration": "Maya smiled and held her magic spyglass close. The whole world was full of wonders — you just had to look!",
           "narrationPos": "bottom",
           "sceneHint": "bedroom",
           "sfx": { "text": "MAGIC!", "x": 50, "y": 35, "color": "#ffd93d" },
-          "bubbles": [
-            { "text": "I spy... adventures EVERYWHERE!", "x": 50, "y": 58, "tailDir": "center", "type": "shout", "speaker": "Maya" }
-          ]
+          "bubbles": [{ "text": "I spy adventures EVERYWHERE!", "x": 52, "y": 58, "tailDir": "center", "type": "shout", "speaker": "Maya" }]
         }
       ],
       "choices": null

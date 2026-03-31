@@ -9,130 +9,182 @@
       "panels": [
         {
           "layout": "full",
-          "narration": "Baby Bear woke up one morning feeling very, very playful!",
+          "narration": "Baby Bear woke up feeling very, very playful!",
           "narrationPos": "top",
           "sceneHint": "bedroom",
           "bubbles": [{ "text": "I want to play PEEKABOO!", "x": 55, "y": 62, "tailDir": "center", "type": "shout", "speaker": "Baby Bear" }]
         },
         {
           "layout": "wide",
-          "narration": "Baby Bear ran outside and hid behind the biggest tree in the garden!",
+          "narration": "Baby Bear ran outside and hid somewhere in the garden. Can YOU find him?",
           "narrationPos": "bottom",
           "sceneHint": "garden",
-          "sfx": { "text": "WHOOSH!", "x": 50, "y": 35, "color": "#00b894" },
-          "bubbles": [{ "text": "Nobody will find me here!", "x": 55, "y": 55, "tailDir": "center", "type": "whisper", "speaker": "Baby Bear" }]
-        },
-        {
-          "layout": "right",
-          "narration": "Bunny, Duck, and Squirrel came looking. Where could Baby Bear be?",
-          "narrationPos": "top",
-          "sceneHint": "garden",
-          "bubbles": [{ "text": "Baby Bear? Where ARE you?!", "x": 50, "y": 62, "tailDir": "center", "type": "shout", "speaker": "Bunny" }]
+          "sfx": { "text": "WHOOSH!", "x": 75, "y": 35, "color": "#00b894" },
+          "bubbles": [{ "text": "Hehe... nobody will find me!", "x": 38, "y": 55, "tailDir": "right", "type": "whisper", "speaker": "Baby Bear" }]
         }
       ],
       "choices": [
-        { "text": "Look behind the big red flowers!", "next": "ch2a" },
-        { "text": "Check under the rainbow bridge!", "next": "ch2b" },
-        { "text": "Peek inside the hollow log!", "next": "ch2c" }
+        { "text": "Peek behind the big red flowers!", "next": "ch2a" },
+        { "text": "Look under the rainbow bridge!", "next": "ch2b" },
+        { "text": "Check inside the hollow log!", "next": "ch2c" }
       ]
     },
+
     "ch2a": {
       "panels": [
         {
           "layout": "full",
-          "narration": "Bunny hopped over to the big red flowers and peeked behind them...",
+          "tapReveal": {
+            "emoji": "🌸",
+            "coverText": "Something's hiding behind the flowers... TAP TO PEEK!",
+            "burstText": "PEEKABOO!",
+            "burstColor": "#fd79a8"
+          },
+          "narration": "The big red flowers are shaking... something's behind them!",
           "narrationPos": "top",
           "sceneHint": "garden",
-          "bubbles": [{ "text": "Hmm... I wonder... I wonder...", "x": 50, "y": 62, "tailDir": "center", "type": "thought", "speaker": "Bunny" }]
+          "bubbles": [{ "text": "YOU FOUND ME! Hehe!", "x": 55, "y": 62, "tailDir": "center", "type": "shout", "speaker": "Baby Bear" }],
+          "sfx": { "text": "PEEKABOO!", "x": 50, "y": 40, "color": "#fd79a8" }
         },
         {
           "layout": "wide",
-          "narration": "Two little furry ears were sticking out from behind the flowers!",
+          "narration": "Baby Bear jumped out with the biggest grin! Bunny laughed so hard her ears flopped!",
           "narrationPos": "bottom",
           "sceneHint": "garden",
-          "sfx": { "text": "PEEKABOO!", "x": 50, "y": 35, "color": "#fd79a8" },
           "bubbles": [
-            { "text": "YOU FOUND ME!", "x": 38, "y": 55, "tailDir": "right", "type": "shout", "speaker": "Baby Bear" },
-            { "text": "PEEKABOO!", "x": 65, "y": 42, "tailDir": "left", "type": "shout", "speaker": "Bunny" }
+            { "text": "I knew you were there!", "x": 35, "y": 38, "tailDir": "right", "type": "shout", "speaker": "Bunny" },
+            { "text": "No you didn't! Hehe!", "x": 65, "y": 55, "tailDir": "left", "type": "shout", "speaker": "Baby Bear" }
           ]
         }
       ],
       "choices": [
-        { "text": "Now Bunny hides and Baby Bear seeks!", "next": "ch3" },
-        { "text": "Everyone hides at the same time!", "next": "ch3" }
+        { "text": "Now Bunny hides! Can you find her?", "next": "ch3a" },
+        { "text": "Everyone hides at the same time!", "next": "ch3b" }
       ]
     },
+
     "ch2b": {
       "panels": [
         {
           "layout": "full",
-          "narration": "Duck waddled over to the sparkly rainbow bridge and looked underneath...",
+          "tapReveal": {
+            "emoji": "🌈",
+            "coverText": "Someone's hiding under the rainbow bridge... TAP TO PEEK!",
+            "burstText": "PEEKABOO!",
+            "burstColor": "#ffd93d"
+          },
+          "narration": "There are muddy pawprints leading under the rainbow bridge...",
           "narrationPos": "top",
           "sceneHint": "sky",
-          "bubbles": [{ "text": "Is anyone there? Hello?", "x": 50, "y": 62, "tailDir": "center", "type": "normal", "speaker": "Duck" }]
+          "bubbles": [{ "text": "BOO! Did I surprise you?!", "x": 55, "y": 62, "tailDir": "center", "type": "shout", "speaker": "Baby Bear" }],
+          "sfx": { "text": "PEEKABOO!", "x": 50, "y": 40, "color": "#ffd93d" }
         },
         {
           "layout": "wide",
-          "narration": "A big brown nose appeared from under the bridge, followed by two shiny eyes!",
+          "narration": "Duck had been looking everywhere! She quacked with delight when Baby Bear popped out!",
           "narrationPos": "bottom",
           "sceneHint": "sky",
-          "sfx": { "text": "PEEKABOO!", "x": 50, "y": 35, "color": "#ffd93d" },
           "bubbles": [
-            { "text": "BOO! Hehe, you found me!", "x": 38, "y": 55, "tailDir": "right", "type": "shout", "speaker": "Baby Bear" },
-            { "text": "QUACK! I knew it!", "x": 65, "y": 42, "tailDir": "left", "type": "shout", "speaker": "Duck" }
+            { "text": "QUACK! I never would've looked there!", "x": 35, "y": 38, "tailDir": "right", "type": "shout", "speaker": "Duck" },
+            { "text": "That's why it was perfect!", "x": 65, "y": 55, "tailDir": "left", "type": "shout", "speaker": "Baby Bear" }
           ]
         }
       ],
       "choices": [
-        { "text": "Now Duck hides and Baby Bear seeks!", "next": "ch3" },
-        { "text": "Everyone hides at the same time!", "next": "ch3" }
+        { "text": "Now Duck hides! Can you find her?", "next": "ch3a" },
+        { "text": "Everyone hides at the same time!", "next": "ch3b" }
       ]
     },
+
     "ch2c": {
       "panels": [
         {
           "layout": "full",
-          "narration": "Squirrel scampered over to the old hollow log and pressed her tiny ear against it...",
+          "tapReveal": {
+            "emoji": "🪵",
+            "coverText": "Giggling is coming from inside the hollow log... TAP TO PEEK!",
+            "burstText": "BOO!!!",
+            "burstColor": "#e17055"
+          },
+          "narration": "The hollow log is wobbling... and there's a sound of happy giggling inside!",
           "narrationPos": "top",
           "sceneHint": "forest_night",
-          "bubbles": [{ "text": "I can hear giggling in there!", "x": 52, "y": 62, "tailDir": "center", "type": "whisper", "speaker": "Squirrel" }]
+          "bubbles": [{ "text": "RAWR! I mean... PEEKABOO!", "x": 55, "y": 62, "tailDir": "center", "type": "shout", "speaker": "Baby Bear" }],
+          "sfx": { "text": "BOO!!!", "x": 50, "y": 40, "color": "#e17055" }
         },
         {
           "layout": "wide",
-          "narration": "Baby Bear burst out of the log with the biggest surprise jump ever!",
+          "narration": "Squirrel's acorns went flying when Baby Bear burst out! She laughed until her tummy hurt!",
           "narrationPos": "bottom",
           "sceneHint": "forest_night",
-          "sfx": { "text": "BOO!!!", "x": 50, "y": 32, "color": "#e17055" },
           "bubbles": [
-            { "text": "PEEKABOO! Did I scare you?!", "x": 38, "y": 58, "tailDir": "right", "type": "shout", "speaker": "Baby Bear" },
-            { "text": "EEK! Yes! Haha!", "x": 65, "y": 42, "tailDir": "left", "type": "shout", "speaker": "Squirrel" }
+            { "text": "EEK! Hahaha! You scared me!", "x": 35, "y": 38, "tailDir": "right", "type": "shout", "speaker": "Squirrel" },
+            { "text": "Best hiding spot EVER!", "x": 65, "y": 55, "tailDir": "left", "type": "shout", "speaker": "Baby Bear" }
           ]
         }
       ],
       "choices": [
-        { "text": "Now Squirrel hides and Baby Bear seeks!", "next": "ch3" },
-        { "text": "Everyone hides at the same time!", "next": "ch3" }
+        { "text": "Now Squirrel hides! Can you find her?", "next": "ch3a" },
+        { "text": "Everyone hides at the same time!", "next": "ch3b" }
       ]
     },
-    "ch3": {
+
+    "ch3a": {
       "panels": [
         {
           "layout": "full",
-          "narration": "All the friends took turns hiding and seeking all afternoon long!",
+          "tapReveal": {
+            "emoji": "🌿",
+            "coverText": "Baby Bear is looking everywhere... TAP to help him peek!",
+            "burstText": "FOUND YOU!",
+            "burstColor": "#00b894"
+          },
+          "narration": "Now it was Baby Bear's turn to seek. He counted to ten and started looking!",
           "narrationPos": "top",
           "sceneHint": "garden",
-          "sfx": { "text": "PEEKABOO!", "x": 50, "y": 42, "color": "#fd79a8" },
-          "bubbles": [{ "text": "This is the BEST game EVER!", "x": 55, "y": 65, "tailDir": "center", "type": "shout", "speaker": "Everyone" }]
+          "bubbles": [{ "text": "FOUND YOU! That was a great spot!", "x": 55, "y": 62, "tailDir": "center", "type": "shout", "speaker": "Baby Bear" }],
+          "sfx": { "text": "FOUND YOU!", "x": 50, "y": 40, "color": "#00b894" }
         },
         {
           "layout": "wide",
-          "narration": "When the stars came out, Baby Bear and all his friends snuggled together under the big oak tree.",
+          "narration": "All the friends played peekaboo until the stars came out and the moon smiled down at them.",
           "narrationPos": "bottom",
           "sceneHint": "forest_night",
           "bubbles": [
             { "text": "Same time tomorrow?", "x": 35, "y": 35, "tailDir": "right", "type": "normal", "speaker": "Bunny" },
-            { "text": "PEEKABOO! ...Yes!", "x": 65, "y": 52, "tailDir": "left", "type": "shout", "speaker": "Baby Bear" }
+            { "text": "PEEKABOO! ...Yes!", "x": 65, "y": 55, "tailDir": "left", "type": "shout", "speaker": "Baby Bear" }
           ]
+        }
+      ],
+      "choices": null
+    },
+
+    "ch3b": {
+      "panels": [
+        {
+          "layout": "full",
+          "tapReveal": {
+            "emoji": "👀",
+            "coverText": "Everyone is hiding! TAP to find them all!",
+            "burstText": "PEEKABOO!!!",
+            "burstColor": "#a29bfe"
+          },
+          "narration": "All the friends hid at the same time. The garden was quiet... too quiet!",
+          "narrationPos": "top",
+          "sceneHint": "garden",
+          "bubbles": [
+            { "text": "PEEKABOO!", "x": 30, "y": 55, "tailDir": "right", "type": "shout", "speaker": "Bunny" },
+            { "text": "PEEKABOO!", "x": 70, "y": 42, "tailDir": "left", "type": "shout", "speaker": "Baby Bear" }
+          ],
+          "sfx": { "text": "PEEKABOO!!!", "x": 50, "y": 72, "color": "#a29bfe" }
+        },
+        {
+          "layout": "wide",
+          "narration": "Everyone jumped out at the same time! It was the silliest, happiest moment in the whole forest!",
+          "narrationPos": "bottom",
+          "sceneHint": "garden",
+          "sfx": { "text": "HAHAHA!", "x": 50, "y": 35, "color": "#ffd93d" },
+          "bubbles": [{ "text": "Best game EVER!!!", "x": 52, "y": 62, "tailDir": "center", "type": "shout", "speaker": "Everyone" }]
         }
       ],
       "choices": null
